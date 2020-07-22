@@ -1,0 +1,25 @@
+@startuml
+class EnterForestAndPickupItem{
+    +Enter()
+    +Execute()
+    +Exit()
+}
+class GoAteilerAndSynthesis{
+    
+    +Enter()
+    +Execute()
+    +Exit()
+    
+}
+' class GoAteilerAndSynthesis
+' class Alchemist{
+'     - m_currentState: State
+'     - m_itemCount: int
+'     - m_gredientCount: int
+'     + ChangeState(): void
+' }
+
+EnterForestAndPickupItem-->GoAteilerAndSynthesis: ポケットがいっぱいになったら
+
+GoAteilerAndSynthesis->EnterForestAndPickupItem: 素材が無くなったら
+@enduml
