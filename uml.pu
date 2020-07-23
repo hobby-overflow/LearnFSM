@@ -1,4 +1,4 @@
-@startuml
+@startuml State Machine
 class EnterForestAndPickupItem{
     +Enter()
     +Execute()
@@ -24,6 +24,6 @@ EnterForestAndPickupItem-->GoAteilerAndSynthesis: ポケットがいっぱいに
 EnterForestAndPickupItem-->BackHomeAndRest: 疲労度が上がったら
 
 GoAteilerAndSynthesis->EnterForestAndPickupItem: 素材が無くなったら
-BackHomeAndRest-->EnterForestAndPickupItem: 素材が足りていなかったら
-BackHomeAndRest->GoAteilerAndSynthesis: 素材が足りていたら
+BackHomeAndRest->EnterForestAndPickupItem: 素材が足りていなかったら
+BackHomeAndRest-->GoAteilerAndSynthesis: 素材が足りていたら
 @enduml
