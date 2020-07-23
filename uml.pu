@@ -3,23 +3,27 @@ class EnterForestAndPickupItem{
     +Enter()
     +Execute()
     +Exit()
+    -森に行き素材を集める
 }
 class GoAteilerAndSynthesis{
     
     +Enter()
     +Execute()
     +Exit()
+    -アトリエで調合する
     
 }
-' class GoAteilerAndSynthesis
-' class Alchemist{
-'     - m_currentState: State
-'     - m_itemCount: int
-'     - m_gredientCount: int
-'     + ChangeState(): void
-' }
+class BackHomeAndRest{
+    +Enter()
+    +Execute()
+    +Exit()
+    -家に行き休憩する
 
+}
 EnterForestAndPickupItem-->GoAteilerAndSynthesis: ポケットがいっぱいになったら
+EnterForestAndPickupItem-->BackHomeAndRest: 疲労度が上がったら
 
 GoAteilerAndSynthesis->EnterForestAndPickupItem: 素材が無くなったら
+BackHomeAndRest-->EnterForestAndPickupItem: 素材が足りていなかったら
+BackHomeAndRest->GoAteilerAndSynthesis: 素材が足りていたら
 @enduml
