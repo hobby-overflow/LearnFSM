@@ -13,6 +13,7 @@ namespace LearnFSMwithAlchemist
                 System.Threading.Thread.Sleep(500);
                 maruru.Update();
             }
+            Console.WriteLine("調合できたアイテム数: " + maruru.m_itemCount);
         }
     }
 }

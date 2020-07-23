@@ -1,5 +1,6 @@
 public enum Location
 {
     Atelier,
-    Forest
+    Forest,
+    Home
 }

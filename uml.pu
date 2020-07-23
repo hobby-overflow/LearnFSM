@@ -1,4 +1,10 @@
 @startuml State Machine
+class ReturnToHomeAndRest{
+    +Enter()
+    +Execute()
+    +Exit()
+    -家に行き休憩する
+}
 class EnterForestAndPickupItem{
     +Enter()
     +Execute()
@@ -13,17 +19,9 @@ class GoAteilerAndSynthesis{
     -アトリエで調合する
     
 }
-class BackHomeAndRest{
-    +Enter()
-    +Execute()
-    +Exit()
-    -家に行き休憩する
-
-}
+ReturnToHomeAndRest->EnterForestAndPickupItem: 素材が足りていなかったら
+ReturnToHomeAndRest->GoAteilerAndSynthesis: 素材が足りていたら
 EnterForestAndPickupItem-->GoAteilerAndSynthesis: ポケットがいっぱいになったら
-EnterForestAndPickupItem-->BackHomeAndRest: 疲労度が上がったら
-
-GoAteilerAndSynthesis->EnterForestAndPickupItem: 素材が無くなったら
-BackHomeAndRest->EnterForestAndPickupItem: 素材が足りていなかったら
-BackHomeAndRest-->GoAteilerAndSynthesis: 素材が足りていたら
+EnterForestAndPickupItem->ReturnToHomeAndRest: 疲労度が上がったら
+GoAteilerAndSynthesis-->EnterForestAndPickupItem: 素材が無くなったら
 @enduml
