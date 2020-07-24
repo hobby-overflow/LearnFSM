@@ -42,7 +42,7 @@ class Alchemist
     }
     public bool Fatigued()
     {
-        return m_iFatigue >= 5;
+        return m_iFatigue >= maxFatigue;
     }
     public bool ImFine()
     {
@@ -58,7 +58,7 @@ class Alchemist
         m_itemCount += 1;
     }
     public void Update(){
-        Console.WriteLine("--------------------");
+        Console.WriteLine("--------------------" + m_currentState);
         if(m_currentState != null)
         {
             m_currentState.Execute(this);

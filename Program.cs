@@ -10,10 +10,11 @@ namespace LearnFSMwithAlchemist
             Alchemist maruru = new Alchemist(new GoAtelierAndSynthesis());
             maruru.m_location = Location.Atelier;
             for(int i=0;i<20;i++){
-                System.Threading.Thread.Sleep(500);
+                // System.Threading.Thread.Sleep(500);
                 maruru.Update();
             }
             Console.WriteLine("調合できたアイテム数: " + maruru.m_itemCount);
+            
         }
     }
 }

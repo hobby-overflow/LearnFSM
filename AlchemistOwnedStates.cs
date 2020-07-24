@@ -15,14 +15,17 @@ class EnterForestAndPickupGredient: State
         alchemist.PickupGredient();
         Console.WriteLine("素材を見つけた! gredients: " + alchemist.m_gredientCount);
         alchemist.IncreaseFatigue();
+        Console.WriteLine("iFatigue: "  + alchemist.m_iFatigue);
 
         if(alchemist.Fatigued()){
             Console.WriteLine("疲れたから家に帰ろう");
             alchemist.ChangeState(new ReturnToHomeAndRest());
+            return;
         }
         if (alchemist.PocketsFull()) {
             Console.WriteLine("ポケットがいっぱいになっちゃったから帰ろう");
             alchemist.ChangeState(new GoAtelierAndSynthesis());
+            return;
         }
     }
     override public void Exit(Alchemist alchemist){
