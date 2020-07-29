@@ -7,7 +7,7 @@ class Alchemist
     public int maxItem = 3;
     public int maxFatigue = 5;
     public int m_itemCount;
-    public int m_gredientCount;
+    public int m_ingredientCount;
     public int m_iFatigue;
     public Location m_location;
 
@@ -21,16 +21,17 @@ class Alchemist
 
         m_currentState.Exit(this);
         m_currentState = newState;
+        Console.WriteLine("--------------------" + m_currentState);
         m_currentState.Enter(this);
     }
-    public void PickupGredient()
+    public void PickupIngredient()
     {
-        m_gredientCount++;
-        if(m_gredientCount < 0) m_gredientCount = 0;
+        m_ingredientCount++;
+        if(m_ingredientCount < 0) m_ingredientCount = 0;
     }
     public bool PocketsFull()
     {
-        return m_gredientCount >= maxItem;
+        return m_ingredientCount >= maxItem;
     }
     public void IncreaseFatigue()
     {
@@ -48,17 +49,16 @@ class Alchemist
     {
         return m_iFatigue == 0;
     }
-    public bool EnoughGredient()
+    public bool EnoughIngredient()
     {
-        return m_gredientCount > 0;
+        return m_ingredientCount > 0;
     }
     public void Synthesis()
     {
-        m_gredientCount -= 1;
+        m_ingredientCount -= 1;
         m_itemCount += 1;
     }
     public void Update(){
-        Console.WriteLine("--------------------" + m_currentState);
         if(m_currentState != null)
         {
             m_currentState.Execute(this);
