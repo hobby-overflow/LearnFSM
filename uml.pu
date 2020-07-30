@@ -24,4 +24,5 @@ ReturnToHomeAndRest->GoAteilerAndSynthesis: 素材が足りていたら
 EnterForestAndPickupItem-->GoAteilerAndSynthesis: ポケットがいっぱいになったら
 EnterForestAndPickupItem->ReturnToHomeAndRest: 疲労度が上がったら
 GoAteilerAndSynthesis-->EnterForestAndPickupItem: 素材が無くなったら
+GoAteilerAndSynthesis->ReturnToHomeAndRest: 疲労度が上がったら
 @enduml
