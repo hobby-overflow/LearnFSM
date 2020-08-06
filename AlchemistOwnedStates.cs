@@ -24,7 +24,7 @@ class EnterForestAndPickupGredient: State
             alchemist.ChangeState(new ReturnToHomeAndRest());
             return;
         }
-        if (alchemist.PocketsFull()) {
+        else if (alchemist.PocketsFull()) {
             Console.WriteLine("ポケットがいっぱいになっちゃったから帰ろう");
             alchemist.ChangeState(new GoAtelierAndSynthesis());
             return;
