@@ -20,7 +20,7 @@ class EnterForestAndPickupGredient: State
         Console.WriteLine(" iFatigue: "  + alchemist.m_iFatigue);
 
         if(alchemist.Fatigued()){
-            Console.WriteLine("疲れたから家に帰ろう");
+            Console.WriteLine("ふぅ、疲れたから家に帰ろう");
             alchemist.ChangeState(new ReturnToHomeAndRest());
             return;
         }
@@ -54,6 +54,7 @@ class GoAtelierAndSynthesis: State
             Console.WriteLine("良いものができた! item: " + alchemist.m_itemCount + " m_iFatigue: " + alchemist.m_iFatigue);
 
             if(alchemist.Fatigued()) {
+                Console.WriteLine("ふぅ、疲れたから家に帰ろう");
                 alchemist.ChangeState(new ReturnToHomeAndRest());
             }
 
@@ -82,7 +83,8 @@ class ReturnToHomeAndRest: State
     override public void Execute(Alchemist alchemist){
         Console.Write("Execute: ");
         Console.WriteLine("休憩しよう m_iFatigue: " + alchemist.m_iFatigue);
-        alchemist.DecreaseFatigue();
+        // alchemist.DecreaseFatigue();
+        alchemist.Rest();
 
         if (alchemist.ImFine()){
             Console.WriteLine("気持ち良いお昼寝だったー");

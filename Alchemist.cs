@@ -41,6 +41,10 @@ class Alchemist
     {
         m_iFatigue = Math.Clamp(m_iFatigue-2, 0, maxFatigue);
     }
+    public void Rest()
+    {
+        m_iFatigue = 0;
+    }
     public bool Fatigued()
     {
         return m_iFatigue >= maxFatigue;
