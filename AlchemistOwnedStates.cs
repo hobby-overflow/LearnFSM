@@ -6,10 +6,9 @@ using System;
 class EnterForestAndPickupGredient: State
 {
     override public void Enter(Alchemist alchemist){
-        Console.Write("Enter  : ");
         if(alchemist.m_location != Location.Forest){
             alchemist.m_location = Location.Forest;
-            Console.WriteLine("森に到着、いい素材あるかな?");
+            Console.WriteLine("Enter  : " + "森に到着、いい素材あるかな?");
         }
     }
     override public void Execute(Alchemist alchemist){
