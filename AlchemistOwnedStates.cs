@@ -89,12 +89,15 @@ class ReturnToHomeAndRest: State
             Console.WriteLine("気持ち良いお昼寝だったー");
 
             // 素材が足りていたら
-            if(alchemist.EnoughIngredient() == true)
-            alchemist.ChangeState(new GoAtelierAndSynthesis());
-
-            // 素材が足りなかったら
-            if(alchemist.EnoughIngredient() == false)
-            alchemist.ChangeState(new EnterForestAndPickupGredient());
+            if(alchemist.EnoughIngredient() == true){
+                Console.WriteLine("先に調合しに行こうっと");
+                alchemist.ChangeState(new GoAtelierAndSynthesis());
+            } 
+            else // 素材が足りなかったら
+            {
+                Console.WriteLine("素材を取りに行こう");
+                alchemist.ChangeState(new EnterForestAndPickupGredient());
+            }
         }
     }
     override public void Exit(Alchemist alchemist){
