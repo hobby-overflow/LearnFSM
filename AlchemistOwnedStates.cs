@@ -20,7 +20,7 @@ class EnterForestAndPickupGredient: State
             Console.WriteLine("疲れたから家に帰ろう");
             alchemist.ChangeState(new ReturnToHomeAndRest());
         }
-        if (alchemist.PocketsFull()) {
+        else if (alchemist.PocketsFull()) {
             Console.WriteLine("ポケットがいっぱいになっちゃったから帰ろう");
             alchemist.ChangeState(new GoAtelierAndSynthesis());
         }
